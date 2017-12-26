@@ -1,0 +1,33 @@
+{
+  "name": "owapi",
+  "version": "1.0.0",
+  "description": "scrim finder for overwatch made in NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Remius/overwatch.git"
+  },
+  "keywords": [
+    "overwatch",
+    "scrim",
+    "find",
+    "nodejs"
+  ],
+  "author": "Antoine Vermare",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Remius/overwatch/issues"
+  },
+  "homepage": "https://gitlab.com/Remius/overwatch#README",
+  "devDependencies": {
+    "nodemon": "^1.13.3"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.7"
+  }
+}
