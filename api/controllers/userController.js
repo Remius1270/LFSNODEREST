@@ -30,7 +30,7 @@ exports.list_all_users = function(req, res) {
 };
 
 // GETS A SINGLE USER FROM THE DATABASE
-exports.read_a_team = function(req, res) {
+exports.read_a_user = function(req, res) {
   team.findById(req.params.userId, function(err, user) {
     if (err)
       res.send(err);
@@ -39,7 +39,7 @@ exports.read_a_team = function(req, res) {
 };
 
 // DELETES A USER FROM THE DATABASE
-exports.delete_a_team = function(req, res) {
+exports.delete_a_user = function(req, res) {
   team.remove({
     _userId: req.params.userId
   }, function(err, user) {
