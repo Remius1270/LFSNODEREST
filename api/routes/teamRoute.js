@@ -2,8 +2,8 @@
 module.exports = function(app) {
   var team = require('../controllers/teamController');
 
-  // todoList Routes
-  app.route('/teams')
+  //team Routes
+  app.route('/')
     .get(team.list_all_teams)
     .post(team.create_a_team);
 

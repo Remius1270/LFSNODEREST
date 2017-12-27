@@ -1,11 +1,10 @@
 'use strict';
 module.exports = function(app) {
-  var team = require('../controllers/userController');
+  var user = require('../controllers/userController');
 
-  // todoList Routes
+  // user Routes
   app.route('/login')
-    .get(team.list_all_teams)
-    .post(team.create_a_team);
+    .post(user.create_a_team);
 
 
   app.route('/teams/:teamId')

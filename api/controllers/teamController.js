@@ -43,7 +43,7 @@ exports.update_a_team = function(req, res) {
 
 exports.delete_a_team = function(req, res) {
   team.remove({
-    _id: req.params.teamId
+    _teamId: req.params.teamId
   }, function(err, team) {
     if (err)
       res.send(err);

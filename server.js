@@ -6,6 +6,12 @@ mongoose = require('mongoose'),
 Task = require('./api/models/teamModel'), //created model loading here
 bodyParser = require('body-parser');
 
+/****** JSWEBTOKEN module ******/
+var jwt = require('jsonwebtoken');
+var bcrypt = require('bcryptjs');
+var config = require('../config');
+
+
 /******* for passport auth *******/
 app.use(session({
   store: new RedisStore({
