@@ -7,6 +7,9 @@ var TeamSchema = new Schema({
   _teamId: {
     type:Schema.Types.ObjectId
   },
+  userId:{
+    type:Schema.Types.ObjectId
+  },
   name: {
     type: String,
     required: 'Kindly enter the name of the team'

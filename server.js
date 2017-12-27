@@ -1,9 +1,27 @@
 var express = require('express'),
-  app = express(),
-  port = process.env.PORT || 8080,
-  mongoose = require('mongoose'),
-  Task = require('./api/models/teamModel'), //created model loading here
-  bodyParser = require('body-parser');
+app = express(),
+/****** for mongoose architecture *****/
+port = process.env.PORT || 8080,
+mongoose = require('mongoose'),
+Task = require('./api/models/teamModel'), //created model loading here
+bodyParser = require('body-parser');
+
+/******* for passport auth *******/
+app.use(session({
+  store: new RedisStore({
+    url: config.redisStore.url
+  }),
+  secret: config.redisStore.secret,
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+
+/******* called libraries ******/
+const passport = require('passport')//for login
+const session = require('express-session') //for sessions when changing pages
+const RedisStore = require('connect-redis')(session) //for sessions when changing pages
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
