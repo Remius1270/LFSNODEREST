@@ -13,7 +13,7 @@ exports.create_a_user = function(req, res) {
   new_user.save(function(err, user) {
     if (err)
       res.send(err);
-    res.send(user);
+    //res.send(user);
     // create a token
     var token = jwt.sign({ _userId: user._userId }, config.secret, {
      expiresIn: 86400 // expires in 24 hours
