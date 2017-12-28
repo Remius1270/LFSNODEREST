@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var UserSchema = new Schema({
+var userSchema = new Schema({
   _userId: {
     type:Schema.Types.ObjectId
   },
