@@ -1,7 +1,7 @@
 /**
- * TeamController
+ * ManagerController
  *
- * @description :: Server-side logic for managing teams
+ * @description :: Server-side logic for managing managers
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 

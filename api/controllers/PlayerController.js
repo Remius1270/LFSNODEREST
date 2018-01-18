@@ -1,7 +1,7 @@
 /**
- * TeamController
+ * PlayerController
  *
- * @description :: Server-side logic for managing teams
+ * @description :: Server-side logic for managing players
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
