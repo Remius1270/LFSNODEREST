@@ -14,9 +14,7 @@ module.exports = {
     },
     elo: {
       type: "integer",
-      required: true,
-      min: 0,
-      max: 5000
+      required: true
     },
     dispo: {
       type: "string",
@@ -24,8 +22,7 @@ module.exports = {
     },
     logo_url:{
       type: "string",
-      defaultsTo: "",
-      url: true
+      defaultsTo: ""
     },
     lfs: {
       type: "boolean",

@@ -14,8 +14,7 @@ module.exports = {
     },
     email: {
       type: "string",
-      required: true,
-      email: true
+      required: true
     },
     teams: {
       collection: "team",

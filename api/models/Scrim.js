@@ -17,14 +17,13 @@ module.exports = {
       required: true
     },
     state: {
-      type: "enum",
-      enum: ["potential", "confirmed", "inprogress", "finished"],
+      type: "string",
+      isIn: ["potential", "confirmed", "inprogress", "finished"],
       defaultsTo: "potential"
     },
     time: {
-      type: "datetime",
-      required: true,
-      datetime: true
+      type: "string",
+      required: true
     }
   }
 };
