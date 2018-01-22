@@ -18,6 +18,10 @@ module.exports = function defineCustomHook(sails) {
 
       sails.log.info('Initializing custom hook (`custom`)');
 
+      sails.on("ready", ()=>{
+        sails.log(sails);
+      });
+
       // Be sure and call `done()` when finished!
       // (Pass in Error as the first argument if something goes wrong to cause Sails
       //  to stop loading other hooks and give up.)
@@ -26,7 +30,11 @@ module.exports = function defineCustomHook(sails) {
     },
 
     routes: {
-      before: {}
+      before: {
+        '/*': function (req, res, next) {
+          return next();
+        }
+      }
     }
 
   };
