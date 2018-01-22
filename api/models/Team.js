@@ -1,8 +1,8 @@
 /**
  * Team.js
  *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
- * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
+ * @description :: A team storing player info, manager and disponibility
+ * @docs        :: https://github.com/balderdashy/sails-docs/blob/1.0/concepts/ORM/Models.md
  */
 
 module.exports = {
@@ -10,23 +10,27 @@ module.exports = {
   attributes: {
     name: {
       type: "string",
-      required: true
+      required: true,
+      maxLength: 100,
     },
     elo: {
-      type: "integer",
-      required: true
+      type: "number",
+      required: true,
+      isInteger: true,
+      min: 0,
+      max: 5000,
     },
     dispo: {
       type: "string",
-      required: true
+      defaultsTo: "never",
     },
     logo_url:{
       type: "string",
-      defaultsTo: ""
+      defaultsTo: "",
     },
     lfs: {
       type: "boolean",
-      defaultsTo: false
+      defaultsTo: false,
     },
     players: {
       collection: "player",

@@ -1,8 +1,8 @@
 /**
  * Manager.js
  *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
- * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
+ * @description :: The manager model, storing login info and managed teams
+ * @docs        :: https://github.com/balderdashy/sails-docs/blob/1.0/concepts/ORM/Models.md
  */
 
 module.exports = {
@@ -10,16 +10,20 @@ module.exports = {
   attributes: {
     name: {
       type: "string",
-      required: true
+      required: true,
+      maxLength: 100,
     },
     email: {
       type: "string",
       required: true,
-      unique: true
+      unique: true,
+      isEmail: true,
     },
     password: {
       type: "string",
-      required: true
+      required: true,
+      protect: true,
+
     },
     teams: {
       collection: "team",

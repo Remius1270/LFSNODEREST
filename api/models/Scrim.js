@@ -1,8 +1,8 @@
 /**
  * Scrim.js
  *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
- * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
+ * @description :: A record for a scrim wether it happened or not
+ * @docs        :: https://github.com/balderdashy/sails-docs/blob/1.0/concepts/ORM/Models.md
  */
 
 module.exports = {
@@ -18,12 +18,12 @@ module.exports = {
     },
     state: {
       type: "string",
-      isIn: ["potential", "confirmed", "inprogress", "finished"],
+      isIn: ["potential", "confirmed", "inprogress", "team1won", "team2won"],
       defaultsTo: "potential"
     },
     time: {
       type: "string",
-      required: true
+      defaultsTo: "now",
     }
   }
 };
