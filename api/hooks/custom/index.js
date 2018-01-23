@@ -22,6 +22,43 @@ module.exports = function defineCustomHook(sails) {
         sails.log(sails);
       });
 
+      const passport = require('passport');
+      const LocalStrategy = require('passport-local').Strategy;
+
+      passport.use(new LocalStrategy({
+          usernameField: 'email'
+        },
+        function(email, password, done) {
+          Manager.findOne({ email }, function(err, user) {
+            if (err) { return done(err); }
+            if (!user) {
+              return done(null, false, { message: 'Incorrect email.' });
+            }
+            sails.helpers.passwords.checkPassword(password, user.password)
+              .catch(()=>{
+                return done(null, false, { message: 'Incorrect password.' });
+              })
+              .then(()=>{
+                return done(null, user);
+              });
+            // if (user.password != password) {
+            //   return done(null, false, { message: 'Incorrect password.' });
+            // }
+            // return done(null, user);
+          });
+        }
+      ));
+
+      passport.serializeUser(function(user, done) {
+        done(null, user.id);
+      });
+
+      passport.deserializeUser(function(id, done) {
+        Manager.findOne(id).exec(function(err, user) {
+          done(err, user);
+        });
+      });
+
       // Be sure and call `done()` when finished!
       // (Pass in Error as the first argument if something goes wrong to cause Sails
       //  to stop loading other hooks and give up.)

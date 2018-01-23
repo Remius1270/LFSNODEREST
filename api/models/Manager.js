@@ -23,7 +23,6 @@ module.exports = {
       type: "string",
       required: true,
       protect: true,
-
     },
     teams: {
       collection: "team",

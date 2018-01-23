@@ -9,5 +9,8 @@
  */
 
 module.exports.routes = {
-  
+  '/login': require("passport").authenticate("local", {
+              successRedirect: '/manager',
+              failureRedirect: '/'
+            }),
 };
