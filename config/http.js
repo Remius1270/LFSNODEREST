@@ -33,8 +33,6 @@ module.exports.http = {
       'cookieParser',
       'session',
       'bodyParser',
-      'passportIni',
-      'passportSession',
       'compress',
       'poweredBy',
       'router',
@@ -57,13 +55,13 @@ module.exports.http = {
     //   return middlewareFn;
     // })(),
 
-    passportIni: (function () {
-      return require("passport").initialize();
-    })(),
-
-    passportSession: (function () {
-      return require("passport").session();
-    })(),
+    // passportIni: (function () {
+    //   return require("passport").initialize();
+    // })(),
+    //
+    // passportSession: (function () {
+    //   return require("passport").session();
+    // })(),
 
   },
 

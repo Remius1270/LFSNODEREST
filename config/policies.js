@@ -10,7 +10,6 @@
 
 module.exports.policies = {
 
-  '*': ['is-logged-in'],
-  '/login': true,
+  '*': ['has-token'],
 
 };

@@ -10,5 +10,6 @@
 
 module.exports.custom = {
 
+  version: 1,
 
 };

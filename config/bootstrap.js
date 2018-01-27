@@ -62,6 +62,9 @@ module.exports.bootstrap = async function(done) {
   await Manager.createEach([
     { email: 'admin@example.com', name: 'Ryan Dahl', password: await sails.helpers.passwords.hashPassword('abc123') },
   ]);
+  await Key.createEach([
+    { key: "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg", environment: 'development', usedBy: 'larabite' },
+  ]);
 
   // Save new bootstrap version
   await sails.helpers.fs.writeJson.with({
