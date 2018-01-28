@@ -67,7 +67,7 @@ module.exports.bootstrap = async function(done) {
     { key: "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg", environment: 'development', usedBy: 'larabite', versions: [1] },
   ]);
   await Team.createEach([
-    { name: "Team1", elo: 2500, manager: 1 },
+    { name: "Team1", elo: 3650, manager: 1 },
     { name: "Team2", elo: 3500, manager: 1 },
     { name: "Team3", elo: 1220, manager: 2 },
   ]);

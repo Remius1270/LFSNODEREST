@@ -11,7 +11,9 @@
 module.exports.routes = {
 
   'GET /v1/login': { action: "login" },
+  'GET /v1/getcompetitors': { action: "getcompetitors" },
 
   'GET /login': { action: "login" },
+  'GET /getcompetitors': { action: "getcompetitors" },
 
 };
