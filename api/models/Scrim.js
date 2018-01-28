@@ -18,12 +18,18 @@ module.exports = {
     },
     state: {
       type: "string",
-      isIn: ["potential", "confirmed", "inprogress", "team1won", "team2won"],
+      isIn: ["potential", "confirmed", "inprogress", "ended" ],
       defaultsTo: "potential"
     },
     time: {
-      type: "string",
-      defaultsTo: "now",
+      type: "number",
+      defaultsTo: 0,
+    },
+    winner: {
+      model: "team"
+    },
+    loser: {
+      model: "team"
     }
   }
 };

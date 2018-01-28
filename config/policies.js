@@ -10,6 +10,6 @@
 
 module.exports.policies = {
 
-  '*': ['has-token'],
+  '*': ['has-key'],
 
 };

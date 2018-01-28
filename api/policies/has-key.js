@@ -20,9 +20,9 @@ module.exports = async function (req, res, proceed) {
       return res.badRequest({
         message: 'Key provided is for environment "' + req.key.environment + '" but server is in "' + sails.config.environment + '"'
       });
-    } else if (sails.config.custom.version !== req.key.version) {
+    } else if (!_.intersection(req.key.versions, [req.version]).length) {
       return res.badRequest({
-        message: 'Key provided is for version "' + req.key.version + '" but server is in "' + sails.config.custom.version + '"'
+        message: 'Key provided is for versions "' + req.key.versions + '" but requested endpoint is in "' + req.version + '"'
       });
     }
   }

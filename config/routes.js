@@ -10,6 +10,8 @@
 
 module.exports.routes = {
 
+  'GET /v1/login': { action: "login" },
+
   'GET /login': { action: "login" },
 
 };

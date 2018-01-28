@@ -23,10 +23,9 @@ module.exports = {
       required: true,
     },
 
-    version: {
-      type: 'number',
-      defaultsTo: 1,
-      isInteger: true,
+    versions: {
+      type: 'json',
+      defaultsTo: [1],
     },
 
     usedBy: {

@@ -24,9 +24,18 @@ module.exports = {
       required: true,
       protect: true,
     },
+    isAdmin: {
+      type: "json",
+      isBoolean: true,
+      defaultsTo: false,
+    },
     teams: {
       collection: "team",
       via: "manager"
     }
+  },
+
+  customToJSON: function () {
+    return _.omit(this, ['password']);
   }
 };
