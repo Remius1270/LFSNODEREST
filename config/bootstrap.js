@@ -60,39 +60,42 @@ module.exports.bootstrap = async function(done) {
 
   // By convention, this is a good place to set up fake data during development.
   await Manager.createEach([
-    { email: 'admin@example.com', name: 'Paul \'Paul\' Paulson', password: await sails.helpers.passwords.hashPassword('abc123'), isAdmin: true },
-    { email: 'peon@example.com', name: 'Jean Rachid Chang', password: await sails.helpers.passwords.hashPassword('trololo') },
+    { id: 1, email: 'admin@example.com', name: 'Paul \'Paul\' Paulson', password: await sails.helpers.passwords.hashPassword('abc123'), isAdmin: true },
+    { id: 2, email: 'peon@example.com', name: 'Jean Rachid Chang', password: await sails.helpers.passwords.hashPassword('trololo') },
   ]);
   await Key.createEach([
-    { key: "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg", environment: 'development', usedBy: 'larabite', versions: [1] },
+    { id: 1, key: "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg", environment: 'development', usedBy: 'larabite', versions: [1] },
+    { id: 2, key: "tgssAbXYKz1f1Pref14rtgssAbXYKz1f1Pref14rsgt6", environment: 'development', usedBy: 'tests', versions: [2] },
+    { id: 3, key: "ecSmVwId5g06fUOoTKIu3iXDzzly0JzIVePoVwMTloNs", environment: 'production', usedBy: 'tests', versions: [1] },
+    { id: 4, key: "lMJC6k3v15v5sKlYCnQZKTm7Gx21x2eMZoPQetfU2sy8", environment: 'production', usedBy: 'tests', versions: [2] },
   ]);
   await Team.createEach([
-    { name: "Team1", elo: 3650, manager: 1 },
-    { name: "Team2", elo: 3500, manager: 1 },
-    { name: "Team3", elo: 1220, manager: 2 },
+    { id: 1, name: "Team1", elo: 3650, manager: 1 },
+    { id: 2, name: "Team2", elo: 3500, manager: 1 },
+    { id: 3, name: "Team3", elo: 1220, manager: 2 },
   ]);
   await Player.createEach([
-    { name: "Player1", email: "placeholder1@example.com", teams: 1 },
-    { name: "Player2", email: "placeholder2@example.com", teams: 1 },
-    { name: "Player3", email: "placeholder3@example.com", teams: 1 },
-    { name: "Player4", email: "placeholder4@example.com", teams: 1 },
-    { name: "Player5", email: "placeholder5@example.com", teams: [1, 3] },
-    { name: "Player6", email: "placeholder6@example.com", teams: [1, 2] },
-    { name: "Player7", email: "placeholder7@example.com", teams: 2 },
-    { name: "Player8", email: "placeholder8@example.com", teams: 2 },
-    { name: "Player9", email: "placeholder9@example.com", teams: 2 },
-    { name: "Player10", email: "placeholder10@example.com", teams: 2 },
-    { name: "Player11", email: "placeholder11@example.com", teams: 2 },
-    { name: "Player12", email: "placeholder12@example.com", teams: 3 },
-    { name: "Player13", email: "bite@tamere.com", teams: 3 },
-    { name: "Player14", email: "placeholder14@example.com", teams: 3 },
-    { name: "Player15", email: "placeholder15@example.com", teams: 3 },
-    { name: "Player16", email: "placeholder16@example.com", teams: 3 },
+    { id: 1, name: "Player1", email: "placeholder1@example.com", teams: 1 },
+    { id: 2, name: "Player2", email: "placeholder2@example.com", teams: 1 },
+    { id: 3, name: "Player3", email: "placeholder3@example.com", teams: 1 },
+    { id: 4, name: "Player4", email: "placeholder4@example.com", teams: 1 },
+    { id: 5, name: "Player5", email: "placeholder5@example.com", teams: [1, 3] },
+    { id: 6, name: "Player6", email: "placeholder6@example.com", teams: [1, 2] },
+    { id: 7, name: "Player7", email: "placeholder7@example.com", teams: 2 },
+    { id: 8, name: "Player8", email: "placeholder8@example.com", teams: 2 },
+    { id: 9, name: "Player9", email: "placeholder9@example.com", teams: 2 },
+    { id: 10, name: "Player10", email: "placeholder10@example.com", teams: 2 },
+    { id: 11, name: "Player11", email: "placeholder11@example.com", teams: 2 },
+    { id: 12, name: "Player12", email: "placeholder12@example.com", teams: 3 },
+    { id: 13, name: "Player13", email: "bite@tamere.com", teams: 3 },
+    { id: 14, name: "Player14", email: "placeholder14@example.com", teams: 3 },
+    { id: 15, name: "Player15", email: "placeholder15@example.com", teams: 3 },
+    { id: 16, name: "Player16", email: "placeholder16@example.com", teams: 3 },
   ]);
   await Scrim.createEach([
-    { team1: 1, team2: 2, time: new Date(2017, 12, 20, 15), state: "ended", winner: 1, loser: 2 },
-    { team1: 1, team2: 3, time: new Date(2017, 12, 21, 15) },
-    { team1: 3, team2: 2, time: new Date(2017, 12, 22, 15), state: "confirmed" },
+    { id: 1, team1: 1, team2: 2, time: new Date(2017, 12, 20, 15), state: "ended", winner: 1, loser: 2 },
+    { id: 2, team1: 1, team2: 3, time: new Date(2017, 12, 21, 15) },
+    { id: 3, team1: 3, team2: 2, time: new Date(2017, 12, 22, 15), state: "confirmed" },
   ]);
 
   // Save new bootstrap version

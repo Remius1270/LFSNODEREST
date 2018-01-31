@@ -31,7 +31,7 @@ module.exports = {
   fn: async function (inputs, exits) {
     const tier = sails.config.custom.tiers[inputs.tier];
     if (!tier)
-      return exits.invalidTier();
+      return exits.invalidTier({ message: "The specified tier does not exist"});
     const teams = await Team.find({
       where: {
         and: [

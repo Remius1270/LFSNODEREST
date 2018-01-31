@@ -21,14 +21,22 @@ describe("login (action)", function () {
     request
       .get("/login?email=test@example.com&password=abc123")
       .set("key", "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg")
-      .expect(404, done);
+      .expect(404)
+      .end(function (err, res) {
+        expect(res.body).to.have.property("message", "The credentials do not match any manager");
+        done(err);
+      });
   });
 
   it("should return not found with invalid password", function (done) {
     request
       .get("/login?email=admin@example.com&password=something")
       .set("key", "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg")
-      .expect(404, done);
+      .expect(404)
+      .end(function (err, res) {
+        expect(res.body).to.have.property("message", "The email and passwords do not match");
+        done(err);
+      });
   });
 
 });
