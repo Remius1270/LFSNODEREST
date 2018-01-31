@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const request = require('supertest')('http://localhost:1337');
 
-describe("getcompetitors (action)", function () {
+describe("has-key (policy)", function () {
 
   it("should return bad request for no key", function (done) {
     request
