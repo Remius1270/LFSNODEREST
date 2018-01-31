@@ -17,7 +17,7 @@ before(function(done) {
       datastore: 'local',
       migrate: 'drop'
     },
-
+    port: 1337,
   }, function(err, sails) {
     app = sails;
     return done(err, sails);
