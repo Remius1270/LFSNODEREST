@@ -26,6 +26,16 @@ module.exports = async function (req, res, proceed) {
       });
     }
   }
+  // log key use but never save password
+  var params = req.allParams();
+  delete params.password;
+  var args = JSON.stringify(params);
+  KeyUsed.create({
+    key: req.key.id,
+    uri: req.path,
+    args
+  })
+  .catch(sails.log.warn);
   return proceed();
 
 };

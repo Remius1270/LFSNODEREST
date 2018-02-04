@@ -3,6 +3,10 @@ const request = require('supertest')('http://localhost:1337');
 
 describe("has-key (policy)", function () {
 
+  beforeEach(function (done) {
+    KeyUsed.destroy({}).then(done);
+  });
+
   it("should return bad request for no key", function (done) {
     request
       .get("/team")
@@ -43,6 +47,23 @@ describe("has-key (policy)", function () {
       .end(function (err, res) {
         expect(res.body).to.have.property("message", 'Key provided is for environment "production" but server is in "development"');
         done(err);
+      });
+  });
+
+  it("should return request result and log key use with good key", function (done) {
+    request
+      .get("/teamsintier?tier=master")
+      .set("key", "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg")
+      .expect(200)
+      .end(function (err, res) {
+        expect(res.body).to.have.lengthOf(2);
+        KeyUsed.findOne({ key:1 }).then(ku => {
+          // expect(ku.key).to.have.property("key", "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg");
+          expect(ku).to.have.property("key", 1);
+          expect(ku).to.have.property("uri", "/teamsintier");
+          expect(ku).to.have.property("args", '{"tier":"master"}');
+          done(err);
+        });
       });
   });
 
