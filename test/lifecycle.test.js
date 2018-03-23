@@ -17,6 +17,11 @@ before(function(done) {
       datastore: 'local',
       migrate: 'drop'
     },
+    datastores: {
+      local:{
+        adapter:'sails-disk'
+      }
+    },
     port: 1337,
   }, function(err, sails) {
     app = sails;
