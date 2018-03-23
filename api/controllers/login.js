@@ -42,7 +42,7 @@ module.exports = {
 
     const user = await Manager.findOne({
       email: inputs.email
-    });
+    }).populate('teams').populate('role');
     if (!user) return exits.notFound({
       message: 'The credentials do not match any manager'
     });

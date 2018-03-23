@@ -15,7 +15,7 @@ module.exports.bootstrap = async function(done) {
   var path = require('path');
 
   // This bootstrap version indicates what version of fake data we're dealing with here.
-  var HARD_CODED_DATA_VERSION = 0;
+  var HARD_CODED_DATA_VERSION = 1;
 
   // This path indicates where to store/look for the JSON file that tracks the "last run bootstrap info"
   // locally on this development computer (if we happen to be on a development computer).
@@ -59,9 +59,13 @@ module.exports.bootstrap = async function(done) {
   }//∞
 
   // By convention, this is a good place to set up fake data during development.
+  await Role.createEach([
+    { id:1, name: 'Manager' },
+    { id:2, name: 'Admin', deletePlayer:true, deleteScrim:true, deleteSelf:true, updateOthers:true, deleteOthers:true, isAdmin:true, isModerator:true },
+  ]);
   await Manager.createEach([
-    { id: 1, email: 'admin@example.com', name: 'Paul \'Paul\' Paulson', password: await sails.helpers.passwords.hashPassword('abc123'), isAdmin: true },
-    { id: 2, email: 'peon@example.com', name: 'Jean Rachid Chang', password: await sails.helpers.passwords.hashPassword('trololo') },
+    { id: 1, email: 'admin@example.com', name: 'Paul \'Paul\' Paulson', password: await sails.helpers.passwords.hashPassword('abc123'), role:2 },
+    { id: 2, email: 'peon@example.com', name: 'Jean Rachid Chang', password: await sails.helpers.passwords.hashPassword('trololo'), role:1 },
   ]);
   await Key.createEach([
     { id: 1, key: "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg", environment: 'development', usedBy: 'larabite', versions: [1] },
