@@ -16,6 +16,11 @@ module.exports = {
       model: "key",
     },
 
+    method: {
+      type: "string",
+      isIn: ["GET", "POST", "PATCH", "HEAD", "OPTIONS", "PUT", "DELETE", "OPTIONS", "TRACE", "CONNECT"],
+    },
+
     uri: {
       type: "string",
     },

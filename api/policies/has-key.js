@@ -11,18 +11,18 @@
 module.exports = async function (req, res, proceed) {
 
   if (!req.headers['key']) {
-    return res.badRequest({ message: 'Key not provided' });
+    return res.badRequest({ message: 'key not provided' });
   } else {
     req.key = await Key.findOne({ key: req.headers['key'] });
     if (!req.key) {
       return res.badRequest({ message: 'Invalid key' });
     } else if (sails.config.environment !== req.key.environment) {
       return res.badRequest({
-        message: 'Key provided is for environment "' + req.key.environment + '" but server is in "' + sails.config.environment + '"'
+        message: 'key provided is for environment "' + req.key.environment + '" but server is in "' + sails.config.environment + '"'
       });
     } else if (!_.intersection(req.key.versions, [req.version]).length) {
       return res.badRequest({
-        message: 'Key provided is for versions "' + req.key.versions + '" but requested endpoint is in "' + req.version + '"'
+        message: 'key provided is for versions "' + req.key.versions + '" but requested endpoint is in "' + req.version + '"'
       });
     }
   }
@@ -33,6 +33,7 @@ module.exports = async function (req, res, proceed) {
   KeyUsed.create({
     key: req.key.id,
     uri: req.path,
+    method: req.method.toUpperCase(),
     args
   })
   .catch(sails.log.warn);
