@@ -31,10 +31,17 @@ module.exports = {
     role: {
       model: "role",
       required: true
+    },
+    emailVerified: {
+      type: "boolean",
+      defaultsTo: false
+    },
+    emailVerificationToken: {
+      type: "string",
     }
   },
 
   customToJSON: function () {
-    return _.omit(this, ['password']);
+    return _.omit(this, ['password', 'emailVerificationToken']);
   }
 };

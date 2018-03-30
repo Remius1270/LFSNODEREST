@@ -12,7 +12,7 @@ describe("has-key (policy)", function () {
       .get("/team")
       .expect(400)
       .end(function (err, res) {
-        expect(res.body).to.have.property("message", "Key not provided");
+        expect(res.body).to.have.property("message", "key not provided");
         done(err);
       });
   });
@@ -34,7 +34,7 @@ describe("has-key (policy)", function () {
       .set("key", "tgssAbXYKz1f1Pref14rtgssAbXYKz1f1Pref14rsgt6")
       .expect(400)
       .end(function (err, res) {
-        expect(res.body).to.have.property("message", 'Key provided is for versions "2" but requested endpoint is in "1"');
+        expect(res.body).to.have.property("message", 'key provided is for versions "2" but requested endpoint is in "1"');
         done(err);
       });
   });
@@ -45,7 +45,7 @@ describe("has-key (policy)", function () {
       .set("key", "ecSmVwId5g06fUOoTKIu3iXDzzly0JzIVePoVwMTloNs")
       .expect(400)
       .end(function (err, res) {
-        expect(res.body).to.have.property("message", 'Key provided is for environment "production" but server is in "development"');
+        expect(res.body).to.have.property("message", 'key provided is for environment "production" but server is in "development"');
         done(err);
       });
   });

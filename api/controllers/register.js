@@ -58,18 +58,14 @@ module.exports = {
       inputs.role = role.id;
     }
     inputs.password = await sails.helpers.passwords.hashPassword(inputs.password);
+    inputs.emailVerificationToken = require('randomstring').generate({ length: 64 });
     try {
       let manager = await Manager.create(inputs).fetch();
       return exits.success(manager);
     } catch (e) {
-      switch (e.name) {
-        case 'UsageError':
-          return exits.alreadyExists(e);
-          break;
-        default:
-          return this.res.serverError(e);
-          break;
-      }
+      return exits.alreadyExists({
+        message: "User (probably) already exists"
+      });
     }
   }
 

@@ -7,6 +7,7 @@ describe("Manager (model)", function () {
       Manager.findOne({ email: "admin@example.com" }).then(function (manager) {
         expect(manager, "record not found").to.exist;
         expect(manager.toJSON(), "found a password property").to.not.have.property("password");
+        expect(manager.toJSON(), "found a emailVerificationToken property").to.not.have.property("emailVerificationToken");
         done();
       });
     });

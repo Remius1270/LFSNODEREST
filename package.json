@@ -12,6 +12,7 @@
     "npm": "^5.7.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "randomstring": "^1.1.5",
     "sails": "^1.0.0-45",
     "sails-hook-apianalytics": "^2.0.0",
     "sails-hook-organics": "^0.13.0",
