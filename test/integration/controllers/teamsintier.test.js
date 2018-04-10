@@ -6,7 +6,7 @@ describe("teamsintier (action)", function () {
   it("should return the list of teams in master tier", function (done) {
     request
       .get("/teamsintier?tier=master")
-      .set("key", "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg")
+      .set("key", "f4he6m7opf39qblakro1ep1jsbv104okfac5f2476ojs")
       .expect(200)
       .end(function (err, res) {
         var teams = res.body;
@@ -18,7 +18,7 @@ describe("teamsintier (action)", function () {
   it("should return bad request for unknown tier", function (done) {
     request
       .get("/teamsintier?tier=nothing")
-      .set("key", "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg")
+      .set("key", "f4he6m7opf39qblakro1ep1jsbv104okfac5f2476ojs")
       .expect(400)
       .end(function (err, res) {
         expect(res.body).to.have.property("message", "The specified tier does not exist");

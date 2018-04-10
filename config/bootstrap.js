@@ -15,7 +15,7 @@ module.exports.bootstrap = async function(done) {
   var path = require('path');
 
   // This bootstrap version indicates what version of fake data we're dealing with here.
-  var HARD_CODED_DATA_VERSION = 1;
+  var HARD_CODED_DATA_VERSION = 2;
 
   // This path indicates where to store/look for the JSON file that tracks the "last run bootstrap info"
   // locally on this development computer (if we happen to be on a development computer).
@@ -72,11 +72,13 @@ module.exports.bootstrap = async function(done) {
     { id: 2, key: "tgssAbXYKz1f1Pref14rtgssAbXYKz1f1Pref14rsgt6", environment: 'development', usedBy: 'tests', versions: [2] },
     { id: 3, key: "ecSmVwId5g06fUOoTKIu3iXDzzly0JzIVePoVwMTloNs", environment: 'production', usedBy: 'tests', versions: [1] },
     { id: 4, key: "lMJC6k3v15v5sKlYCnQZKTm7Gx21x2eMZoPQetfU2sy8", environment: 'production', usedBy: 'tests', versions: [2] },
+    { id: 4, key: "f4he6m7opf39qblakro1ep1jsbv104okfac5f2476ojs", environment: 'development', usedBy: 'tests', versions: [1] },
+    { id: 5, key: "g851a4umml87bfgudlmv8mvpjmegav9evofi2gqj54ud", environment: 'development', usedBy: 'API dev', versions: [1] },
   ]);
   await Team.createEach([
     { id: 1, name: "Team1", elo: 3650, manager: 1 },
-    { id: 2, name: "Team2", elo: 3500, manager: 1 },
-    { id: 3, name: "Team3", elo: 1220, manager: 2 },
+    { id: 2, name: "Team2", elo: 3500, manager: 1, dispo: ['PT18H/PT22H'] },
+    { id: 3, name: "Team3", elo: 1220, manager: 2, dispo: ['PT19H/PT21H', 'P1DT19H/P1DT21H'] },
   ]);
   await Player.createEach([
     { id: 1, name: "Player1", email: "placeholder1@example.com", teams: 1 },

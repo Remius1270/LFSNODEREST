@@ -6,7 +6,7 @@ describe("register (action)", function () {
   it("should return the manager created without password", function (done) {
     request
       .post("/register")
-      .set("key", "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg")
+      .set("key", "f4he6m7opf39qblakro1ep1jsbv104okfac5f2476ojs")
       .send({
         email:"test1@example.com",
         password:"zoupity",
@@ -26,7 +26,7 @@ describe("register (action)", function () {
   it("should return bad request with already used email", function (done) {
     request
       .post("/register")
-      .set("key", "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg")
+      .set("key", "f4he6m7opf39qblakro1ep1jsbv104okfac5f2476ojs")
       .send({
         email:"admin@example.com",
         password:"abc123",
@@ -42,7 +42,7 @@ describe("register (action)", function () {
   it("should create an admin user", function (done) {
     request
       .post("/register")
-      .set("key", "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg")
+      .set("key", "f4he6m7opf39qblakro1ep1jsbv104okfac5f2476ojs")
       .send({
         email:"test2@example.com",
         password:"zoupity",

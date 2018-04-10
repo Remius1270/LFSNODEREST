@@ -21,8 +21,8 @@ module.exports = {
       max: 5000,
     },
     dispo: {
-      type: "string",
-      defaultsTo: "never",
+      type: "json",
+      defaultsTo: [],
     },
     logo_url:{
       type: "string",
