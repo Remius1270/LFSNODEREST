@@ -15,7 +15,7 @@ module.exports.bootstrap = async function(done) {
   var path = require('path');
 
   // This bootstrap version indicates what version of fake data we're dealing with here.
-  var HARD_CODED_DATA_VERSION = 2;
+  var HARD_CODED_DATA_VERSION = 3;
 
   // This path indicates where to store/look for the JSON file that tracks the "last run bootstrap info"
   // locally on this development computer (if we happen to be on a development computer).
@@ -66,6 +66,7 @@ module.exports.bootstrap = async function(done) {
   await Manager.createEach([
     { id: 1, email: 'admin@example.com', name: 'Paul \'Paul\' Paulson', password: await sails.helpers.passwords.hashPassword('abc123'), role:2 },
     { id: 2, email: 'peon@example.com', name: 'Jean Rachid Chang', password: await sails.helpers.passwords.hashPassword('trololo'), role:1 },
+    { id: 3, email: 'graaav@example.com', name: 'Grasse Vinasse', password: await sails.helpers.passwords.hashPassword('root'), role:1 },
   ]);
   await Key.createEach([
     { id: 1, key: "7b14r3oV2LHhknbp5qCGDgsT0rh3JVZlUDgPJKNBPKOg", environment: 'development', usedBy: 'larabite', versions: [1] },
@@ -77,8 +78,8 @@ module.exports.bootstrap = async function(done) {
   ]);
   await Team.createEach([
     { id: 1, name: "Team1", elo: 3650, manager: 1 },
-    { id: 2, name: "Team2", elo: 3500, manager: 1, dispo: ['PT18H/PT22H'] },
-    { id: 3, name: "Team3", elo: 1220, manager: 2, dispo: ['PT19H/PT21H', 'P1DT19H/P1DT21H'] },
+    { id: 2, name: "Team2", elo: 3500, manager: 2, dispo: ['PT18H/PT22H'] },
+    { id: 3, name: "Team3", elo: 1220, manager: 3, dispo: ['PT19H/PT21H', 'P1DT19H/P1DT21H'] },
   ]);
   await Player.createEach([
     { id: 1, name: "Player1", email: "placeholder1@example.com", teams: 1 },
@@ -93,7 +94,7 @@ module.exports.bootstrap = async function(done) {
     { id: 10, name: "Player10", email: "placeholder10@example.com", teams: 2 },
     { id: 11, name: "Player11", email: "placeholder11@example.com", teams: 2 },
     { id: 12, name: "Player12", email: "placeholder12@example.com", teams: 3 },
-    { id: 13, name: "Player13", email: "bite@tamere.com", teams: 3 },
+    { id: 13, name: "Player13", email: "bite@tamere.com", teams: [3, 1] },
     { id: 14, name: "Player14", email: "placeholder14@example.com", teams: 3 },
     { id: 15, name: "Player15", email: "placeholder15@example.com", teams: 3 },
     { id: 16, name: "Player16", email: "placeholder16@example.com", teams: 3 },
