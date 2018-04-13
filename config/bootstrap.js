@@ -73,8 +73,8 @@ module.exports.bootstrap = async function(done) {
     { id: 2, key: "tgssAbXYKz1f1Pref14rtgssAbXYKz1f1Pref14rsgt6", environment: 'development', usedBy: 'tests', versions: [2] },
     { id: 3, key: "ecSmVwId5g06fUOoTKIu3iXDzzly0JzIVePoVwMTloNs", environment: 'production', usedBy: 'tests', versions: [1] },
     { id: 4, key: "lMJC6k3v15v5sKlYCnQZKTm7Gx21x2eMZoPQetfU2sy8", environment: 'production', usedBy: 'tests', versions: [2] },
-    { id: 4, key: "f4he6m7opf39qblakro1ep1jsbv104okfac5f2476ojs", environment: 'development', usedBy: 'tests', versions: [1] },
-    { id: 5, key: "g851a4umml87bfgudlmv8mvpjmegav9evofi2gqj54ud", environment: 'development', usedBy: 'API dev', versions: [1] },
+    { id: 5, key: "f4he6m7opf39qblakro1ep1jsbv104okfac5f2476ojs", environment: 'development', usedBy: 'tests', versions: [1] },
+    { id: 6, key: "g851a4umml87bfgudlmv8mvpjmegav9evofi2gqj54ud", environment: 'development', usedBy: 'API dev', versions: [1] },
   ]);
   await Team.createEach([
     { id: 1, name: "Team1", elo: 3650, manager: 1 },
